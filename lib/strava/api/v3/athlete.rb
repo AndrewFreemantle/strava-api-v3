@@ -6,7 +6,7 @@ module Strava::Api::V3
     include Common
 
     # This request is used to retrieve information about the currently authenticated athlete.
-    # 
+    #
     # See {http://strava.github.io/api/v3/athlete/#get-details} for full details
     #
     # @param args any additional arguments
@@ -19,8 +19,22 @@ module Strava::Api::V3
       api_call("athlete", args, "get", options, &block)
     end
 
+    # This request is used to retrieve information about the friends of the currently authenticated athlete.
+    #
+    # See {http://strava.github.io/api/v3/follow/#friends} for full details
+    #
+    # @param args any additional arguments
+    # @param options (see #get_object)
+    # @param block post processing code block
+    #
+    # @return athlete summary json array (see http://strava.github.io/api/v3/athlete/#summary)
+    def retrieve_athlete_friends(args = {}, options = {}, &block)
+      # Fetches the connections for given object.
+      api_call("athlete/friends", args, "get", options, &block)
+    end
+
     # This request is used to retrieve information about any athlete on Strava.
-    # 
+    #
     # See {http://strava.github.io/api/v3/athlete/#get-another-details} for full details
     #
     # @param id athlete id
@@ -36,7 +50,7 @@ module Strava::Api::V3
 
     # Returns an array of segment efforts representing KOMs/QOMs and course records held by the given athlete.
     # Results are sorted by date, newest first. Pagination is supported.
-    # 
+    #
     # See {http://strava.github.io/api/v3/athlete/#koms} for full details
     #
     # @param id athlete id
