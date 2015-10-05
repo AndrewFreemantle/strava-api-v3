@@ -85,13 +85,15 @@ Each method returns a JSON object - see [http://strava.github.io/api/v3/segments
 
 ```ruby
 
-@client.retrieve_a_segment(:some_id)
+@client.retrieve_a_segment(:segment_id)
 
 @client.list_starred_segment
 
-@client.segment_leaderboards(:some_id)
+@client.segment_leaderboards(:segment_id)
 
 @client.segment_explorer
+
+@client.segment_list_efforts(:segment_id) # fetch segment efforts, for a given segment, optionally filtered by athlete and/or a date range
 
 ```
 
