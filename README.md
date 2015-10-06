@@ -49,6 +49,8 @@ Each method returns a JSON object - see [http://strava.github.io/api/v3/athlete/
 
 @client.retrieve_another_athlete(:some_id) # fetch another athlete by id
 
+@client.retrieve_athlete_stats(:athlete_id) # fetch the authenticated athlete's recent, year to date and all time stats
+
 @client.list_athlete_segment_efforts(:some_id) # fetch K/QOMs/CRs for another athlete by id
 
 ```
