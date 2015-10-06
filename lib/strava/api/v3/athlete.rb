@@ -49,6 +49,7 @@ module Strava::Api::V3
     end
 
     # This request is used to retrieve the recent (last 4 weeks), year to date and all time stats.
+    # Only available for the authenticated athlete. This is the recommended endpoint when polling for athlete upload events.
     #
     # See {http://strava.github.io/api/v3/athlete/#stats} for full details
     #
@@ -60,7 +61,7 @@ module Strava::Api::V3
     # @return athlete json (see http://strava.github.io/api/v3/athlete/#get-another-details)
     def retrieve_athlete_stats(id, args = {}, options = {}, &block)
       # Fetches the connections for given object.
-      api_call("stats/#{id}", args, "get", options, &block)
+      api_call("athletes/#{id}/stats", args, "get", options, &block)
     end
 
     # Returns an array of segment efforts representing KOMs/QOMs and course records held by the given athlete.
